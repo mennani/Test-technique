@@ -28,4 +28,4 @@ fonctionnement correspond au fonctionnement prévu, puis d'utiliser un outil d'i
 de l'application. Ensuite, procéder au déploiement de l'API avec L'orcherstrateur Kubernets dans un conteneur Docker par exemple. 
 
 Versionnement :
-Version 1.0 : API fonctionnelle
+Version 1.0 (API fonctionnelle)
