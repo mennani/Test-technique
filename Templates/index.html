@@ -1,6 +1,18 @@
 {#{% extends layout_template if layout_template is defined else 'index.html' %}#}
 
 <!DOCTYPE html>
+
+<!--
+Cette page HTML contient le template web d'affichage de l'API.
+La page web récupère les paramètres choisis par le client ou les paramètres par défaut de l'API,
+puis elle envoie une requête URL de type POST à l'API via le bouton Run.
+Ensuite, après le click sur le bouton Run, l'API effectue le calcul du résultat et
+l'affiche dans la partie du formulaire dédiée (dans la même page).
+
+Pour la conception de cette page, j'ai utilisé le moteur de Template Jinja, ce dernier façilite la définition de
+la structure d'un document (HTML,XML, CSV .etc)
+-->
+
 <html>
 <head>
 	<meta charset="UTF-8" />
@@ -15,7 +27,7 @@
     <legend><b>Paramètres</b></legend>
     <table style="width:70%">
     <tr>
-        <td><label for="multiple">Le nombre à énumérer</label></td>
+        <td><label for="multiple">Le nombre à énumére</label></td>
         <td><input type="input" id="Multiple" name="Multiple" value="{{ multiple }}"></td>
     </tr>
 
@@ -31,7 +43,7 @@
 
     <tr>
         <td><label for="multiple">Le mot à afficher</label></td>
-        <td><input type="input" id="" name="mot_a_afficher" value="{{ mot_a_afficher }}"></td>
+        <td><input type="input" id="mot_a_afficher" name="mot_a_afficher" value="{{ mot_a_afficher }}"></td>
     </tr>
 
     <tr>
@@ -45,23 +57,16 @@
 
     {% if est_afficher %}
 
-     <strong>{{ mot_a_afficher }} </strong><br><br>
-     <strong>Les multiples de {{multiple}} dans {{seuil_max}} :</strong>
-        {% for i in list_div %}
-            {{  i  }}
-        {% endfor %}
+        {{ mot_a_afficher }}
 
-      {% else %}
+    {% else %}
 
-        {% if list_div|length != 0 %}
-            <strong>Le nombre de multiples de {{multiple}} dans {{seuil_max}} est :</strong> {{list_div|length}}<br><br>
-            <strong>Les multiples de {{multiple}} dans {{seuil_max}} :</strong>
-            {% for i in list_div %}
-                {{  i  }}
-            {% endfor %}
-        {% endif %}
+      {% if list_div|length > 0 %}
+        Le nombre de multiples de {{multiple}} dans {{seuil_max}} est : {{list_div|length}}
+      {% endif %}
 
     {% endif %}
+
   </fieldset>
 </form>
 
