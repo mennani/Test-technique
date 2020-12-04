@@ -1,0 +1,69 @@
+{#{% extends layout_template if layout_template is defined else 'index.html' %}#}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <title>My API</title>
+</head>
+
+<body>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <fieldset style="width:50%">
+    <legend><b>Paramètres</b></legend>
+    <table style="width:70%">
+    <tr>
+        <td><label for="multiple">Le nombre à énumérer</label></td>
+        <td><input type="input" id="Multiple" name="Multiple" value="{{ multiple }}"></td>
+    </tr>
+
+    <tr>
+        <td><label for="seuil_max">La limite de nombres à parcourir</label></td>
+        <td><input type="input" id="seuil_max" name="seuil_max" value="{{ seuil_max }}"></td>
+    </tr>
+
+    <tr>
+        <td><label for="frequence">Le nombre à utiliser pour la comparaison</label></td>
+        <td><input type="input" id="frequence" name="frequence" value="{{ frequence }}"></td>
+    </tr>
+
+    <tr>
+        <td><label for="multiple">Le mot à afficher</label></td>
+        <td><input type="input" id="" name="mot_a_afficher" value="{{ mot_a_afficher }}"></td>
+    </tr>
+
+    <tr>
+        <td><input type="submit" value="Run"></td>
+    </tr>
+    </table>
+  </fieldset>
+
+  <fieldset style="width:50%">
+    <legend><b>Résultat</b></legend>
+
+    {% if est_afficher %}
+
+     <strong>{{ mot_a_afficher }} </strong><br><br>
+     <strong>Les multiples de {{multiple}} dans {{seuil_max}} :</strong>
+        {% for i in list_div %}
+            {{  i  }}
+        {% endfor %}
+
+      {% else %}
+
+        {% if list_div|length != 0 %}
+            <strong>Le nombre de multiples de {{multiple}} dans {{seuil_max}} est :</strong> {{list_div|length}}<br><br>
+            <strong>Les multiples de {{multiple}} dans {{seuil_max}} :</strong>
+            {% for i in list_div %}
+                {{  i  }}
+            {% endfor %}
+        {% endif %}
+
+    {% endif %}
+  </fieldset>
+</form>
+
+</body>
+</html>
