@@ -23,9 +23,9 @@ La ligne de commande suivante permet d'éxecuter le package contenant l'API : ch
 
 Déploiement :
 Cette API peut être intégré à toute application de type micro-services sous forme d'un composant logiciel indépendant. A titre d'exemple une application d'aide d'apprentissage 
-de calcule. Pour simplifier le déploiement, la personne en charge du DevOps peut définir le code du test de cette API. la tester dans un premier temps et s'assurer que son 
+de calcule. Pour simplifier le déploiement, la personne en charge du DevOps peut définir le code du test de cette API, la tester dans un premier temps et s'assurer que son 
 fonctionnement correspond au fonctionnement prévu, puis d'utiliser un outil d'intégration continue comme GitLab CI pour tester l'intégration de l'API avec les autres composants 
-de l'application. Ensuite, procéder au déploiement de l'API avec L'orcherstrateur Kubernets dans un conteneur Docker par exemple. 
+de l'application. Ensuite, procéder au déploiement de l'API avec l'orcherstrateur Kubernetes dans un conteneur Docker par exemple. 
 
 Versionnement :
 Version 1.0 (API fonctionnelle)
